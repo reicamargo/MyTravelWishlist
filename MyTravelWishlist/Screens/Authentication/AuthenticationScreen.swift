@@ -19,8 +19,6 @@ struct AuthenticationScreen: View {
             Color.white.opacity(0.6)
             VStack {
                 Spacer()
-                Spacer()
-                Spacer()
                 Text(errorMessage)
                     .font(.headline)
                     .fontWeight(.semibold)
@@ -29,6 +27,16 @@ struct AuthenticationScreen: View {
                     .foregroundStyle(.red)
                     .padding(6)
                     .background(.white.opacity(0.6))
+                Spacer()
+                Spacer()
+                Text("My Travel Wishlist 🧳")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.blue)
+                    .padding(6)
+                    .background(.white.opacity(0.6))
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                
                 Spacer()
             }
         }
