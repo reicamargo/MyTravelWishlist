@@ -23,13 +23,26 @@ struct EditPinView: View {
                 }
                 
                 Section("Nearby...") {
-                    List {
-                        VStack {
-                            Text("1")
-                            Text("2")
-                            Text("3")
+                    
+                    switch editPinViewModel.loadingState {
+                    case .loading:
+                        ProgressView("Loading...")
+                    case .loaded:
+                        List(editPinViewModel.nearbyLocations, id: \.pageid) { nearbyLocation in
+                            Link(destination: URL(string: nearbyLocation.stringURL)!) {
+                                Text(nearbyLocation.title)
+                                    .font(.headline)
+                                + Text(": ") +
+                                Text(nearbyLocation.description)
+                                    .italic()
+                            }
                         }
+                    case .failed(let errorMessage):
+                        Text(errorMessage)
                     }
+                }
+                .task {
+                    await editPinViewModel.loadNearbyPlaces()
                 }
             }
             .navigationTitle("Place details")

@@ -17,6 +17,9 @@
 		3D4651902C1B610600EADE81 /* LocationPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D46518F2C1B610600EADE81 /* LocationPersistence.swift */; };
 		3D4651922C1B68BB00EADE81 /* EditPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4651912C1B68BB00EADE81 /* EditPinView.swift */; };
 		3D4651942C1B6A8C00EADE81 /* EditPinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4651932C1B6A8C00EADE81 /* EditPinViewModel.swift */; };
+		3D4651982C1B740500EADE81 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4651972C1B740500EADE81 /* LoadingState.swift */; };
+		3D46519A2C1B74D600EADE81 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4651992C1B74D600EADE81 /* Page.swift */; };
+		3D46519C2C1B7B5700EADE81 /* WikiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D46519B2C1B7B5700EADE81 /* WikiNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		3D46518F2C1B610600EADE81 /* LocationPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPersistence.swift; sourceTree = "<group>"; };
 		3D4651912C1B68BB00EADE81 /* EditPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPinView.swift; sourceTree = "<group>"; };
 		3D4651932C1B6A8C00EADE81 /* EditPinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPinViewModel.swift; sourceTree = "<group>"; };
+		3D4651972C1B740500EADE81 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		3D4651992C1B74D600EADE81 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		3D46519B2C1B7B5700EADE81 /* WikiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 		3D4651742C1B352D00EADE81 /* MyTravelWishlist */ = {
 			isa = PBXGroup;
 			children = (
+				3D4651952C1B73E900EADE81 /* Utilities */,
 				3D46518E2C1B607400EADE81 /* Managers */,
 				3D4651862C1B390B00EADE81 /* Models */,
 				3D4651832C1B387700EADE81 /* Screens */,
@@ -95,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4651872C1B391F00EADE81 /* Location.swift */,
+				3D4651992C1B74D600EADE81 /* Page.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -129,8 +137,25 @@
 			isa = PBXGroup;
 			children = (
 				3D46518F2C1B610600EADE81 /* LocationPersistence.swift */,
+				3D46519B2C1B7B5700EADE81 /* WikiNetwork.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		3D4651952C1B73E900EADE81 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3D4651962C1B73F600EADE81 /* Enums */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3D4651962C1B73F600EADE81 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				3D4651972C1B740500EADE81 /* LoadingState.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,8 +232,11 @@
 				3D4651902C1B610600EADE81 /* LocationPersistence.swift in Sources */,
 				3D4651942C1B6A8C00EADE81 /* EditPinViewModel.swift in Sources */,
 				3D4651782C1B352D00EADE81 /* MapView.swift in Sources */,
+				3D46519A2C1B74D600EADE81 /* Page.swift in Sources */,
 				3D46518A2C1B3E6B00EADE81 /* AuthenticationScreen.swift in Sources */,
 				3D4651762C1B352D00EADE81 /* MyTravelWishlistApp.swift in Sources */,
+				3D46519C2C1B7B5700EADE81 /* WikiNetwork.swift in Sources */,
+				3D4651982C1B740500EADE81 /* LoadingState.swift in Sources */,
 				3D4651882C1B391F00EADE81 /* Location.swift in Sources */,
 				3D4651852C1B389300EADE81 /* MapViewModel.swift in Sources */,
 			);
