@@ -39,7 +39,15 @@ final class MapViewModel {
         locations.append(newLocation)
     }
     
-    func updateLocation(location: Location) {
+    func updateLocation(_ updatedLocation: Location) {
+        guard let selectedLocation else { return }
         
+        Task {
+            await LocationPersistence.shared.update(from: selectedLocation, to: updatedLocation)
+        }
+        
+        if let index = locations.firstIndex(of: selectedLocation) {
+            locations[index] = updatedLocation
+        }
     }
 }

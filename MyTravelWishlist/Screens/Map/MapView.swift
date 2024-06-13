@@ -35,7 +35,7 @@ struct MapView: View {
         }
         .sheet(item: $mapViewModel.selectedLocation, content: { location in
             EditPinView(location: location) { location in
-                mapViewModel.updateLocation(location: location)
+                mapViewModel.updateLocation(location)
             }
         })
         .fullScreenCover(isPresented: $mapViewModel.needAuthentication) {

@@ -24,10 +24,11 @@ final class LocationPersistence {
         }
     }
     
-    func save(_ locations: [Location]) {
+    private func save(_ locations: [Location]) {
         do {
             let locationEncoded = try JSONEncoder().encode(locations)
             try locationEncoded.write(to: savePath, options: [.atomic, .completeFileProtection])
+            return
         } catch {
             print("Error")
         }
@@ -40,7 +41,13 @@ final class LocationPersistence {
         save(locations)
     }
     
-    func update(location: Location) async {
+    func update(from oldLocation: Location, to newLocation: Location) async {
+        var locations = load()
         
+        if let index = locations.firstIndex(of: oldLocation) {
+            locations[index] = newLocation
+            save(locations)
+        }
+        return
     }
 }
