@@ -18,8 +18,7 @@ struct MapView: View {
                     Annotation(location.name, coordinate: location.coordinate) {
                         Image(.redPin)
                             .resizable()
-                            .frame(width: 50, height: 50)
-                            .offset(x: 5, y: -23)
+                            .frame(width: 44, height: 44)
                             .onLongPressGesture {
                                 mapViewModel.selectedLocation = location
                             }
