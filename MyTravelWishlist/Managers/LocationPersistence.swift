@@ -25,13 +25,10 @@ final class LocationPersistence {
     }
     
     private func save(_ locations: [Location]) {
-        do {
-            let locationEncoded = try JSONEncoder().encode(locations)
-            try locationEncoded.write(to: savePath, options: [.atomic, .completeFileProtection])
-            return
-        } catch {
-            print("Error")
+        if let locationEncoded = try? JSONEncoder().encode(locations) {
+            try? locationEncoded.write(to: savePath, options: [.atomic, .completeFileProtection])
         }
+        return
     }
     
     func add(newLocation: Location) async {
