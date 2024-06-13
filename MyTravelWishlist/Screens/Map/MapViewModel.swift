@@ -23,10 +23,6 @@ final class MapViewModel {
         )
         locations = LocationPersistence.shared.load()
         needAuthentication = true
-        
-        #if DEBUG
-        needAuthentication = false
-        #endif
     }
     
     func addLocation(at coordinate: CLLocationCoordinate2D) {

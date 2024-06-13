@@ -32,6 +32,20 @@ struct MapView: View {
                 }
             }
         }
+        .overlay(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
+            VStack(alignment: .leading) {
+                Text("Instructions")
+                    .font(.headline)
+                Text("1) One tap in a location to pin a marker.")
+                    .font(.subheadline)
+                Text("2) A long tap on a marker to show details.")
+                    .font(.subheadline)
+            }
+            .padding(6)
+            .background(.white.opacity(0.4))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            
+        })
         .sheet(item: $mapViewModel.selectedLocation, content: { location in
             EditPinView(location: location) { location, action in
                 mapViewModel.update(location: location, action: action)
