@@ -35,6 +35,7 @@ struct AuthenticationScreen: View {
         .onAppear(perform: authenticate)
     }
     
+    @MainActor
     func authenticate() {
         let context = LAContext()
         var error: NSError?

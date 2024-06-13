@@ -9,7 +9,7 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    @StateObject var mapViewModel = MapViewModel()
+    @State private var mapViewModel = MapViewModel()
     
     var body: some View {
         MapReader { mapProxy in
@@ -19,6 +19,10 @@ struct MapView: View {
                         Image(.redPin)
                             .resizable()
                             .frame(width: 50, height: 50)
+                            .offset(x: 5, y: -23)
+                            .onLongPressGesture {
+                                mapViewModel.selectedLocation = location
+                            }
                     }
                 }
             }
@@ -29,6 +33,11 @@ struct MapView: View {
                 }
             }
         }
+        .sheet(item: $mapViewModel.selectedLocation, content: { location in
+            EditPinView(location: location) { location in
+                mapViewModel.updateLocation(location: location)
+            }
+        })
         .fullScreenCover(isPresented: $mapViewModel.needAuthentication) {
             AuthenticationScreen(needAuthentication: $mapViewModel.needAuthentication)
         }

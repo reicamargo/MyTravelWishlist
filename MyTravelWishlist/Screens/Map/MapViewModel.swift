@@ -8,10 +8,12 @@
 import MapKit
 import SwiftUI
 
-final class MapViewModel: ObservableObject {
-    private(set) var initialPosition: MapCameraPosition
-    @Published var locations: [Location]
-    @Published var needAuthentication: Bool
+@Observable
+final class MapViewModel {
+    var initialPosition: MapCameraPosition
+    private(set) var locations: [Location]
+    var needAuthentication: Bool
+    var selectedLocation: Location?
     
     init() {
         initialPosition = MapCameraPosition.region(
@@ -19,12 +21,25 @@ final class MapViewModel: ObservableObject {
                 center: CLLocationCoordinate2D(latitude: -10.4747, longitude: -54.0176),
                 span: MKCoordinateSpan(latitudeDelta: 72, longitudeDelta: 40))
         )
-        locations = [Location]()
+        locations = LocationPersistence.shared.load()
         needAuthentication = true
+        
+        #if DEBUG
+        needAuthentication = false
+        #endif
     }
     
     func addLocation(at coordinate: CLLocationCoordinate2D) {
         let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: coordinate.latitude, longitude: coordinate.longitude)
+        
+        Task {
+            await LocationPersistence.shared.add(newLocation: newLocation)
+        }
+        
         locations.append(newLocation)
+    }
+    
+    func updateLocation(location: Location) {
+        
     }
 }
