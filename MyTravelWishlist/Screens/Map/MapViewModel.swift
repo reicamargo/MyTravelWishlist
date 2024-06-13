@@ -39,7 +39,23 @@ final class MapViewModel {
         locations.append(newLocation)
     }
     
-    func updateLocation(_ updatedLocation: Location) {
+    func update(location: Location, action: Action) {
+        switch action {
+        case .edit:
+            self.editLocation(location)
+        case .remove:
+            removeLocation(location)
+        }
+    }
+    
+    private func removeLocation(_ location: Location) {
+        Task {
+            await LocationPersistence.shared.delete(location: location)
+        }
+        locations.removeAll { $0.id == location.id }
+    }
+    
+    private func editLocation(_ updatedLocation: Location) {
         guard let selectedLocation else { return }
         
         Task {

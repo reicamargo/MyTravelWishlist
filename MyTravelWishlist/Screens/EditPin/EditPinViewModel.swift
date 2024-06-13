@@ -19,7 +19,7 @@ final class EditPinViewModel: ObservableObject {
         loadingState = .loading
     }
     
-    func save() -> Location {
+    func edit() -> Location {
         self.location.id = UUID()
         return self.location
     }

@@ -50,4 +50,11 @@ final class LocationPersistence {
         }
         return
     }
+    
+    func delete(location: Location) async {
+        var locations = load()
+        
+        locations.removeAll { $0.id == location.id }
+        save(locations)
+    }
 }

@@ -20,6 +20,7 @@
 		3D4651982C1B740500EADE81 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4651972C1B740500EADE81 /* LoadingState.swift */; };
 		3D46519A2C1B74D600EADE81 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4651992C1B74D600EADE81 /* Page.swift */; };
 		3D46519C2C1B7B5700EADE81 /* WikiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D46519B2C1B7B5700EADE81 /* WikiNetwork.swift */; };
+		3D46519E2C1B877500EADE81 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D46519D2C1B877500EADE81 /* Action.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		3D4651972C1B740500EADE81 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		3D4651992C1B74D600EADE81 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		3D46519B2C1B7B5700EADE81 /* WikiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiNetwork.swift; sourceTree = "<group>"; };
+		3D46519D2C1B877500EADE81 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4651972C1B740500EADE81 /* LoadingState.swift */,
+				3D46519D2C1B877500EADE81 /* Action.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				3D4651782C1B352D00EADE81 /* MapView.swift in Sources */,
 				3D46519A2C1B74D600EADE81 /* Page.swift in Sources */,
 				3D46518A2C1B3E6B00EADE81 /* AuthenticationScreen.swift in Sources */,
+				3D46519E2C1B877500EADE81 /* Action.swift in Sources */,
 				3D4651762C1B352D00EADE81 /* MyTravelWishlistApp.swift in Sources */,
 				3D46519C2C1B7B5700EADE81 /* WikiNetwork.swift in Sources */,
 				3D4651982C1B740500EADE81 /* LoadingState.swift in Sources */,

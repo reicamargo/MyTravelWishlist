@@ -12,7 +12,7 @@ struct EditPinView: View {
     
     @ObservedObject private var editPinViewModel: EditPinViewModel
     
-    private var onSave: (Location) -> Void
+    private var onSave: (Location, Action) -> Void
     
     var body: some View {
         NavigationStack {
@@ -47,15 +47,23 @@ struct EditPinView: View {
             }
             .navigationTitle("Place details")
             .toolbar {
-                Button("Save") {
-                    onSave(editPinViewModel.save())
-                    dismiss()
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Delete", role: .destructive) {
+                        onSave(editPinViewModel.location, .remove)
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Save") {
+                        onSave(editPinViewModel.edit(), .edit)
+                        dismiss()
+                    }
                 }
             }
         }
     }
     
-    init(location: Location, onSave: @escaping (Location) -> Void) {
+    init(location: Location, onSave: @escaping (Location, Action) -> Void) {
         self.editPinViewModel = EditPinViewModel(location: location)
         self.onSave = onSave
     }
@@ -68,5 +76,5 @@ struct EditPinView: View {
                                 latitude: 1.0,
                                 longitude: 2.0)
     
-    return EditPinView(location: editLocation) { _ in }
+    return EditPinView(location: editLocation) { _,_  in }
 }
